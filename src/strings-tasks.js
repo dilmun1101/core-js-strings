@@ -286,8 +286,12 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const arrOfCharacters = [];
+  for (let i = 0; i < str.length; i += 1) {
+    arrOfCharacters.push(str[i]);
+  }
+  return arrOfCharacters.sort().join('');
 }
 
 /**
@@ -302,8 +306,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -320,8 +324,28 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const arrOfVowels = [
+    'a',
+    'e',
+    'i',
+    'o',
+    'u',
+    'y',
+    'A',
+    'E',
+    'I',
+    'O',
+    'U',
+    'Y',
+  ];
+  let count = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (arrOfVowels.includes(str[i])) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /**
@@ -337,8 +361,20 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let newStr = '';
+  let reverseStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] !== ',' && str[i] !== ' ' && str[i] !== '!' && str[i] !== '?') {
+      newStr += str[i].toLowerCase();
+    }
+  }
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    if (str[i] !== ',' && str[i] !== ' ' && str[i] !== '!' && str[i] !== '?') {
+      reverseStr += str[i].toLowerCase();
+    }
+  }
+  return newStr === reverseStr;
 }
 
 /**
@@ -353,8 +389,15 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const arr = sentence.split(' ');
+  let longestWord = arr[0];
+  for (let i = 1; i < arr.length; i += 1) {
+    if (longestWord.length < arr[i].length) {
+      longestWord = arr[i];
+    }
+  }
+  return longestWord;
 }
 
 /**
